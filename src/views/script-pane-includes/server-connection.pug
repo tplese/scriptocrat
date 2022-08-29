@@ -1,0 +1,18 @@
+.row
+  div#scrollable.col-12
+    form#set-server-address(name='serverFormData' action='', method='post')
+      row
+        h2 Server credentials - NOT SECURE !
+        h5 Only for testing with throwaway servers that you will destroy afterwards!
+        h3 Server Host:
+        input(form='set-server-address' type='text' id='server-host' name='host' style='width:100%' placeholder='0.0.0.0' required=true)
+        h3 Server Port:
+        input(form='set-server-address' type='text' id='server-port' name='port' style='width:100%' placeholder='22' required=true)
+        h3 Server User:
+        input(form='set-server-address' type='text' id='server-user' name='user' style='width:100%' placeholder='username' required=true)
+        h3 Server Password:
+        input(form='set-server-address' type='password' id='server-password' name='password' style='width:100%' required=true)
+        h3 Targer Remote Folder:
+        input(form='set-server-address' type='text' id='server-folder' name='folder' style='width:100%' placeholder='/home/username/' required=true)
+
+        button.btn.btn-primary.create-module-btn(id='server-address' form='set-server-address' name='serverAddress' onclick='setServerAddress') Set Server Address

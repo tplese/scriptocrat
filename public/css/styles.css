@@ -1,0 +1,72 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+}
+
+.splitter {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: white;
+}
+
+#separator {
+    cursor: col-resize;
+    background-color: #aaa;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='30'><path d='M2 0 v30 M5 0 v30 M8 0 v30' fill='none' stroke='black'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 10px;
+    height: 99vh;
+
+    /* prevent browser's built-in drag from interfering */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#first {
+    width: 50%;
+    height: 99vh;
+    overflow-y: scroll;
+    min-width: 10px;
+}
+
+#second {
+    width: 50%;
+    height: 99vh;
+    overflow-y: scroll;
+    min-width: 10px;
+}
+
+.black-pane {
+    border-width: 0.6em 0.3em 0.6em 0.6em;
+    border-style: solid;
+    border-color: grey;
+    background-color: black;
+    opacity: 0.8;
+}
+
+#scrollable {
+    overflow-y: auto;
+    margin-bottom: 120px;
+}
+
+.module-card {
+    width: 20rem;
+    color: black;
+}
+
+.module-margin {
+    margin-bottom: 5rem;
+}
+
+.labels {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.inputs {
+    width: 100%;
+}
+

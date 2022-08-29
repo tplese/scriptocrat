@@ -1,0 +1,52 @@
+{
+  "name": "scriptocrat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "lint": "eslint app.js",
+    "start": "DEBUG=app,app:* nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tplese/scriptocrat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tplese/scriptocrat/issues"
+  },
+  "homepage": "https://github.com/tplese/scriptocrat#readme",
+  "dependencies": {
+    "@popperjs/core": "2.4.0",
+    "aws-sdk": "^2.1201.0",
+    "body-parser": "1.19.0",
+    "bootstrap": "4.4.1",
+    "debug": "4.1.1",
+    "express": "4.17.1",
+    "jquery": "3.5.0",
+    "mongodb": "3.5.7",
+    "morgan": "1.10.0",
+    "properties-reader": "^2.2.0",
+    "pug": "^3.0.2",
+    "ssh2-sftp-client": "^9.0.3"
+  },
+  "devDependencies": {
+    "eslint": "6.8.0",
+    "eslint-config-airbnb-base": "14.1.0",
+    "eslint-plugin-import": "2.20.2",
+    "nodemon": "^2.0.19"
+  },
+  "nodemonConfig": {
+    "delay": 2500,
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 3000
+    }
+  }
+}

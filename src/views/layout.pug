@@ -1,0 +1,94 @@
+doctype html
+html(lang='en')
+    head
+        title= 'Scriptocrat'
+        link(rel='stylesheet', href='/css/bootstrap.min.css')
+        link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/css/styles.css')
+
+    body
+        block scriptsPage
+        
+        script(src='/js/jquery.min.js')
+        script(src='/js/popper.min.js')
+        script(src='/js/bootstrap.min.js')
+        script(src='/js/pane-slider.js')
+        script.
+            function createNewModule(moduleID) {
+                document.getElementById(`module-${moduleID}-name`).style.display = 'none';
+
+                let moduleParentElement = document.getElementById(`module-${moduleID}`);
+
+                let newModuleName = document.createElement('h2');
+                newModuleName.setAttribute('id', `module-${moduleID}-new-name`)
+
+                newModuleName.innerHTML += 
+                    `<span id='module-name-app-name'>Application</span>
+                    <span id='module-name-app-version'> [version] </span>
+                    <span> on </span>
+                    <span id='module-name-os'>Operating System</span>
+                    <span id='module-name-os-version'> [version] </span>
+                    <span> by </span>
+                    <span>Scriptocrat</span>`
+
+                moduleParentElement.insertBefore(newModuleName, moduleParentElement.childNodes[0]);
+
+                document.getElementById(`module-${moduleID}`).innerHTML +=
+                    `<div>
+                        <label class='labels' for='application'>Application </label>
+                        <input id='module-application' class='inputs' type='text' name='application' placeholder='ex. Nginx, Apach, Node.js, New user....'></input>
+                    </div>
+                    <div>
+                        <label class='labels' for='app-version'>Application  version</label>
+                        <input id='module-app-version' class='inputs' type='text' name='app-version' placeholder='ex. 12.01, 1.1.,.. or none'></input>
+                    </div>
+                    <div>
+                        <label class='labels' for='operating-system'>Operating System </label>
+                        <input id='module-os' class='inputs' type='text' name='operating-system' placeholder='ex. Ubuntu, Mint...'></input>
+                    </div>
+                    <div>
+                        <label class='labels' for='os-version'>OS version </label>
+                        <input id='module-os-version' class='inputs' type='text' name='os-version' placeholder='ex. 16.04, 18.04....'></textarea>
+                    </div>
+                    <div>
+                        <label class='labels'>Module Creator </label>
+                        <div class='inputs'>Scriptocrat</div>
+                    </div>
+                    <div>
+                        <label class='labels' for='description'>Description </label>
+                        <textarea class='inputs' type='text' name='description' rows='4' placeholder='ex. Code for installation.... NOTE: You can increase size by draging right bottom corner.'></textarea>
+                    </div>
+
+                    <button class='btn btn-danger'>Cancel</button>
+                    <button class='btn btn-primary'>Save</button>`
+
+                document.getElementById(`new-from-old-${moduleID}`).remove();
+            }
+            
+        script.
+            // automatic update for "Module Name" label
+            $(document).ready(function() {
+                // application name                
+                $(document).on('keyup propertychange input paste', '#module-application', function() {
+                    
+                    $('#module-name-app-name').html($(this).val());    
+                });
+
+                // application version
+                $(document).on('keyup propertychange input paste', '#module-app-version', function() {
+                    
+                    $('#module-name-app-version').html($(this).val());
+                });
+
+                // operating system
+                $(document).on('keyup propertychange input paste', '#module-os', function() {
+                    
+                    $('#module-name-os').html($(this).val());
+                });
+
+                // operating system version
+                $(document).on('keyup propertychange input paste', '#module-os-version', function() {
+                    
+                    $('#module-name-os-version').html($(this).val());
+                });
+            });

@@ -1,0 +1,15 @@
+.row
+  div#scrollable.col-12
+    form#create-script(name='scriptFormData' action='', method='post')
+      for chosenModule in chosenModulesObj
+        row
+          .col-12.module-margin(id=`module-${chosenModule._id}`)
+            h2(id=`module-${chosenModule._id}-name`)=chosenModule.name
+            textarea(form='create-script' name='oneModule', rows='4', style='width:100%;')=chosenModule.moduleCode
+            button.btn.btn-primary.create-module-btn(id=`new-from-old-${chosenModule._id}` form='create-script' name='newModule' onclick='createNewModule("' + chosenModule._id + '")' value=chosenModule._id hidden=true) Create Module
+        
+  .col-12
+    #new-module-div
+.row
+  .col-12.text-right
+    button.btn.btn-primary(form='create-script', name='scriptCreateButton', value='createScript') Create Script

@@ -1,0 +1,9 @@
+if defaultModules.length
+// should change to for..of + indent
+for defaultModule in defaultModules
+  .card.module-card
+    .card-body
+      .card-title= defaultModule.name
+      p.card-text= defaultModule.description
+        button.btn.btn-secondary(id='showModuleCode', type='button') CODE
+        button.btn.btn-primary(form='create-script' name='moduleID', value=defaultModule._id) ADD

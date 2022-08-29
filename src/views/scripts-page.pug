@@ -1,0 +1,14 @@
+extends layout
+
+block scriptsPage
+	
+	.splitter
+		#first.black-pane Script
+			include script-pane-includes/server-connection
+			include script-pane-includes/script-form
+	
+		#separator
+	
+		#second.black-pane Modules
+			.card-columns
+				include modules-pane-includes/default-module-card
